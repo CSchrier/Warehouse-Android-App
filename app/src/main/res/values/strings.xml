@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Warehouse Application</string>
+    <string name="open_warehouse_button">Warehouse</string>
+    <string name="open_office_button">Office</string>
+    <string name="warehouse_button_audits">Audits</string>
+    <string name="warehouse_button_finished_goods">Finished Goods</string>
+    <string name="warehouse_button_scrap">Scrap</string>
+    <string name="scan_bin">Scan Bin</string>
+    <string name="submit">Submit</string>
+    <string name="scan_bay">Scan Bay</string>
+    <string name="last_added">last added</string>
+    <string name="bin">Bin:</string>
+    <string name="Bay">Bay:</string>
+    <string name="office_button">officebutton</string>
+</resources>
