@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WarehouseApplication">
         <activity
+            android:name=".EditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".ScrapActivity"
             android:exported="false" />
         <activity
