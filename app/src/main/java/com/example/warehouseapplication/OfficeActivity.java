@@ -23,4 +23,9 @@ public class OfficeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EditActivity.class);
         startActivity(intent);
     }
+
+    public void goToAisleAudit(View view) {
+        Intent intent = new Intent(this, WarehouseAuditActivity.class);
+        startActivity(intent);
+    }
 }
