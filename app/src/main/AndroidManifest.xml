@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WarehouseApplication">
         <activity
+            android:name=".InboundActivity"
+            android:exported="false" />
+        <activity
             android:name=".WarehouseAuditActivity"
             android:exported="false" />
         <activity

@@ -12,6 +12,7 @@
     <string name="bin">Bin:</string>
     <string name="Bay">Bay:</string>
     <string name="office_button">officebutton</string>
+    <string name="inbound">Inbound</string>
     <string-array name="aisles">
         <item>A</item>
         <item>B</item>

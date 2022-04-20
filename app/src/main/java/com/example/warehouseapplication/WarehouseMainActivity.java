@@ -26,4 +26,9 @@ public class WarehouseMainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ScrapActivity.class);
         startActivity(intent);
     }
+
+    public void goToInbound(View view) {
+        Intent intent = new Intent(this, InboundActivity.class);
+        startActivity(intent);
+    }
 }
