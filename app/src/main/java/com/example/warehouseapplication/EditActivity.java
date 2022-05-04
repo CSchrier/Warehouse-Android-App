@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Locale;
 
 public class EditActivity extends AppCompatActivity {
     Socket s;
@@ -33,13 +34,25 @@ public class EditActivity extends AppCompatActivity {
         binText = (EditText) findViewById(R.id.binEdit);
         bayText = (EditText) findViewById(R.id.bayEdit);
         jobText = (EditText) findViewById(R.id.jobEdit);
+        String fixedBay = "";
         bin = binText.getText().toString();
         bay = bayText.getText().toString();
+        bay = bay.toUpperCase(Locale.ROOT);
+
         job = jobText.getText().toString();
         TextView textView = findViewById(R.id.TextViewEdit);
+        if((bay.charAt(1))!=('-')){
+            char addADash = '-';
+            fixedBay = bay.substring(0,1).toUpperCase() + addADash + bay.substring(1);
+        }else{
+            fixedBay = bay;
+        }
+
+
         if(job.length()>4&&bin.length()>0&&bay.length()>4){
 
             System.out.println("sending data to server");
+            String finalFixedBay = fixedBay;
             Thread thread = new Thread(new Runnable() {
 
                 @Override
@@ -47,7 +60,7 @@ public class EditActivity extends AppCompatActivity {
                     try  {
                         s = new Socket(ip, 4999);
                         pw = new PrintWriter(s.getOutputStream());
-                        pw.println("0 0 "+ job+"-"+bin + " " + bay);
+                        pw.println("0 0 "+ job+"-"+bin + " " + finalFixedBay);
                         pw.flush();
                         pw.close();
                         s.close();
@@ -80,7 +93,7 @@ public class EditActivity extends AppCompatActivity {
         bin = binText.getText().toString();
         job = jobText.getText().toString();
         TextView textView = findViewById(R.id.lastAdded);
-        if(job.length()>6){
+        if(job.length()>4&&bin.length()>0){
             textView.setText(job+"-"+bin+ " was added to audit room");
             System.out.println("sending data to server");
             Thread thread = new Thread(new Runnable() {

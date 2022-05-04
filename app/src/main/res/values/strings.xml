@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Warehouse Application</string>
+    <string name="app_name">Keystone</string>
     <string name="open_warehouse_button">Warehouse</string>
     <string name="open_office_button">Office</string>
     <string name="warehouse_button_audits">Audits</string>

@@ -75,7 +75,7 @@ public class AuditActivity extends AppCompatActivity {
         binText = (EditText) findViewById(R.id.Bin);
         bin = binText.getText().toString();
         TextView lastAddedTextView = findViewById(R.id.lastAdded);
-        if(bin.length()>6&&bay.length()>4){
+        if(bin.length()>6){
             lastAddedTextView.setText(bin + " was added to audit room");
             System.out.println("sending data to server");
             Thread thread = new Thread(new Runnable() {
