@@ -53,7 +53,7 @@ public class Data {
                 bay = Integer.parseInt(data[1]);
                 job = Integer.parseInt(data[2]);
                 bin = Integer.parseInt(data[3]);
-                time = data[4];
+                time = data[4];//eee
                 Bay temp = new Bay(aisle, bay, job, bin, time);
                 bayList.add(temp);
 
