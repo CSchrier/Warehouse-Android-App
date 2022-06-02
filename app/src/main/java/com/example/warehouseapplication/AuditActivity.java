@@ -2,6 +2,7 @@ package com.example.warehouseapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,8 +31,8 @@ public class AuditActivity extends AppCompatActivity {
     }
 
     public void submitAudit(View view) throws IOException, InterruptedException {
-        binText = (EditText) findViewById(R.id.Bin);
-        bayText = (EditText) findViewById(R.id.bay);
+        binText =  findViewById(R.id.Bin);
+        bayText =  findViewById(R.id.bay);
         bin = binText.getText().toString();
         bay = bayText.getText().toString();
         TextView lastAddedTextView = findViewById(R.id.lastAdded);
@@ -72,11 +73,12 @@ public class AuditActivity extends AppCompatActivity {
 
 
     public void submitAuditToRoom(View view) throws IOException, InterruptedException {
-        binText = (EditText) findViewById(R.id.Bin);
+        bayText =  findViewById(R.id.bay);
+        binText = findViewById(R.id.Bin);
         bin = binText.getText().toString();
         TextView lastAddedTextView = findViewById(R.id.lastAdded);
         if(bin.length()>6){
-            lastAddedTextView.setText(bin + " was added to audit room");
+            lastAddedTextView.setText(bin + " was cleared");
             System.out.println("sending data to server");
             Thread thread = new Thread(new Runnable() {
 
@@ -113,6 +115,5 @@ public class AuditActivity extends AppCompatActivity {
 
     public void goToManualEntry(View view) {
         Intent intent = new Intent(this, EditActivity.class);
-        startActivity(intent);
-    }
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());    }
 }

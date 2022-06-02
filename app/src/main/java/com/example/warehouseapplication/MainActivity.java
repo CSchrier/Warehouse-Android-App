@@ -2,6 +2,7 @@ package com.example.warehouseapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public void warehouseButton(View view) {
         Intent intent = new Intent(this, WarehouseMainActivity.class);
-        startActivity(intent);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     public void office_button(View view) {
         Intent intent = new Intent(this, OfficeActivity.class);
-        startActivity(intent);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 }

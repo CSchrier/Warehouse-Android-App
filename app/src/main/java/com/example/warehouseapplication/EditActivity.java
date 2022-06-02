@@ -23,24 +23,26 @@ public class EditActivity extends AppCompatActivity {
     EditText binText;
     EditText bayText;
     EditText jobText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
     }
 
     public void manualSubmit(View view) {
-        binText = (EditText) findViewById(R.id.binEdit);
-        bayText = (EditText) findViewById(R.id.bayEdit);
-        jobText = (EditText) findViewById(R.id.jobEdit);
-        String fixedBay = "";
+        binText = findViewById(R.id.binEdit);
+        bayText =  findViewById(R.id.bayEdit);
+        jobText =  findViewById(R.id.jobEdit);
+        String fixedBay;
         bin = binText.getText().toString();
         bay = bayText.getText().toString();
         bay = bay.toUpperCase(Locale.ROOT);
 
         job = jobText.getText().toString();
-        TextView textView = findViewById(R.id.TextViewEdit);
+        TextView textView = findViewById(R.id.outputText);
         if((bay.charAt(1))!=('-')){
             char addADash = '-';
             fixedBay = bay.substring(0,1).toUpperCase() + addADash + bay.substring(1);
@@ -88,13 +90,14 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void editToRoom(View view) {
-        binText = (EditText) findViewById(R.id.binEdit);
-        jobText = (EditText) findViewById(R.id.jobEdit);
+        binText =  findViewById(R.id.binEdit);
+        jobText =  findViewById(R.id.jobEdit);
+        bayText =  findViewById(R.id.bayEdit);
         bin = binText.getText().toString();
         job = jobText.getText().toString();
-        TextView textView = findViewById(R.id.lastAdded);
+        TextView textView = findViewById(R.id.outputText);
         if(job.length()>4&&bin.length()>0){
-            textView.setText(job+"-"+bin+ " was added to audit room");
+            textView.setText(job+"-"+bin+ " was pulled and cleared");
             System.out.println("sending data to server");
             Thread thread = new Thread(new Runnable() {
 

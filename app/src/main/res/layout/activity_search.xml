@@ -11,36 +11,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="101dp"
+        android:layout_marginBottom="323dp"
         android:ems="10"
-        android:hint="Job"
+        android:hint="Job - Use done to search"
         android:inputType="numberSigned"
+        android:minHeight="48dp"
+        android:onClick="search"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/search"
+        app:layout_constraintBottom_toTopOf="@+id/searchedJobs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/output" />
+        app:layout_constraintTop_toBottomOf="@+id/listOfJobs" />
 
-    <Button
-        android:id="@+id/search"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/searchedJobs"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="159dp"
-        android:onClick="search"
-        android:text="Search"
+        android:layout_marginTop="24dp"
+        android:autoText="false"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/listOfJobs"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobSearch" />
-
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/jobSearch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
