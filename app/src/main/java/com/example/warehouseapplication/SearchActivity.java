@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -23,6 +24,7 @@ public class SearchActivity extends AppCompatActivity {
     EditText jobText;
     String searchedJob;
     TextView output;
+    ScrollView scrollView;
     TextView searchedText;
     Socket s;
     PrintWriter pw;

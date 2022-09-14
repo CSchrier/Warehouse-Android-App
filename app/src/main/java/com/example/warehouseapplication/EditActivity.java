@@ -94,7 +94,8 @@ public class EditActivity extends AppCompatActivity {
 
 
 
-
+        binText.setText("");
+        bayText.setText("");
         bayText.requestFocus();
     }
 
