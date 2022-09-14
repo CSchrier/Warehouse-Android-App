@@ -34,6 +34,74 @@ public class EditActivity extends AppCompatActivity {
 
     }
 
+    public void manualSubmitNoClear(View view) {
+        aisleSpinner = (Spinner)findViewById(R.id.aisleID);
+        binText = findViewById(R.id.binEdit);
+        bayText =  findViewById(R.id.bayEdit);
+        jobText =  findViewById(R.id.jobEdit);
+
+        bin = binText.getText().toString();
+        bay = bayText.getText().toString();
+        String aisle = aisleSpinner.getSelectedItem().toString();
+
+
+        job = jobText.getText().toString();
+        TextView textView = findViewById(R.id.outputText);
+        /*
+        if((bay.charAt(1))!=('-')){
+            char addADash = '-';
+            fixedBay = bay.substring(0,1).toUpperCase() + addADash + bay.substring(1);
+        }else{
+            fixedBay = bay;
+        }
+        */
+
+
+        if(job.length()>4&&bin.length()>0&&bay.length()>2){
+
+            System.out.println("sending data to server");
+
+            Thread thread = new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    try  {
+                        s = new Socket(ip, 4999);
+                        pw = new PrintWriter(s.getOutputStream());
+                        pw.println("0 0 " + job +"-"+bin+ " "+ aisle+"-"+bay);
+                        pw.flush();
+                        pw.close();
+                        s.close();
+
+                    }  catch (IOException e){
+                        Thread.currentThread().interrupt();
+                        System.out.println(
+                                "Thread was interrupted, Failed to complete operation");
+                    }
+                }
+            });
+            thread.start();
+
+
+
+            System.out.println("Successfully sent data");
+            textView.setText(job+"-"+bin  + " was added to "+aisle+"-"+bay);
+
+        }else{
+            textView.setText("Something went wrong, scan again");
+
+        }
+
+
+
+
+        bayText.requestFocus();
+    }
+
+
+
+
+
     public void manualSubmit(View view) {
         aisleSpinner = (Spinner)findViewById(R.id.aisleID);
         binText = findViewById(R.id.binEdit);
@@ -57,7 +125,7 @@ public class EditActivity extends AppCompatActivity {
         */
 
 
-        if(job.length()>4&&bin.length()>0&&bay.length()>4){
+        if(job.length()>4&&bin.length()>0&&bay.length()>2){
 
             System.out.println("sending data to server");
 
