@@ -44,18 +44,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/aisleID"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:entries="@array/aisles"
+        app:layout_constraintEnd_toStartOf="@+id/bayEdit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="88dp" />
+
     <EditText
         android:id="@+id/bayEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="143dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:hint="Bay"
-        android:inputType="textPersonName"
+        android:inputType="numberSigned"
         android:minHeight="48dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outputText" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/aisleID"
+        tools:layout_editor_absoluteY="89dp" />
 
     <Button
         android:id="@+id/button21"

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class EditActivity extends AppCompatActivity {
     EditText binText;
     EditText bayText;
     EditText jobText;
+    Spinner aisleSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,28 +35,32 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void manualSubmit(View view) {
+        aisleSpinner = (Spinner)findViewById(R.id.aisleID);
         binText = findViewById(R.id.binEdit);
         bayText =  findViewById(R.id.bayEdit);
         jobText =  findViewById(R.id.jobEdit);
         String fixedBay;
         bin = binText.getText().toString();
         bay = bayText.getText().toString();
-        bay = bay.toUpperCase(Locale.ROOT);
+        String aisle = aisleSpinner.getSelectedItem().toString();
+
 
         job = jobText.getText().toString();
         TextView textView = findViewById(R.id.outputText);
+        /*
         if((bay.charAt(1))!=('-')){
             char addADash = '-';
             fixedBay = bay.substring(0,1).toUpperCase() + addADash + bay.substring(1);
         }else{
             fixedBay = bay;
         }
+        */
 
 
         if(job.length()>4&&bin.length()>0&&bay.length()>4){
 
             System.out.println("sending data to server");
-            String finalFixedBay = fixedBay;
+
             Thread thread = new Thread(new Runnable() {
 
                 @Override
@@ -62,7 +68,7 @@ public class EditActivity extends AppCompatActivity {
                     try  {
                         s = new Socket(ip, 4999);
                         pw = new PrintWriter(s.getOutputStream());
-                        pw.println("0 0 "+ job+"-"+bin + " " + finalFixedBay);
+                        pw.println("0 0 " + job +"-"+bin+ " "+ aisle+"-"+bay);
                         pw.flush();
                         pw.close();
                         s.close();
@@ -76,13 +82,18 @@ public class EditActivity extends AppCompatActivity {
             });
             thread.start();
 
+
+
             System.out.println("Successfully sent data");
-            textView.setText(job+"-"+bin  + " was added to bay " + bay);
+            textView.setText(job+"-"+bin  + " was added to "+aisle+"-"+bay);
 
         }else{
             textView.setText("Something went wrong, scan again");
 
         }
+
+
+
         binText.setText("");
         bayText.setText("");
         jobText.setText("");
