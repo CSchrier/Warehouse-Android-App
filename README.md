@@ -8,4 +8,5 @@ Ability to add/delete/move bins as well as audit aisles, and search for specific
 
 This is in use with in-development pages running within the app that maybe depreciated or be meant for future updates.
 
-![Screenshot_20221005-170057_Keystone](https://user-images.githubusercontent.com/81532788/194163153-692782e9-c391-46a8-8c1d-64c16fa53239.jpg)
+
+<img width="179" alt="image" src="https://user-images.githubusercontent.com/81532788/194163350-d1acc1f1-379d-4d2e-b62f-6fe64598fe04.png">
