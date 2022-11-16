@@ -143,7 +143,7 @@ public class WarehouseAuditActivity extends AppCompatActivity {
     }
 
     private void updateInfo(){
-            if(bayIncrementer<bays.length){
+            if(bayIncrementer<bays.length ){
                 bay = bays[bayIncrementer].split("/");
 
                 locationText.setText(bay[0]+"-"+bay[1]);
