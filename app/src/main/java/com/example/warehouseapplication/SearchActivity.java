@@ -34,9 +34,9 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        jobText = (EditText) findViewById(R.id.jobSearch);
-        output = (TextView) findViewById(R.id.listOfJobs);
-        searchedText = (TextView) findViewById(R.id.searchedJobs);
+        jobText = findViewById(R.id.jobSearch);
+        output = findViewById(R.id.listOfJobs);
+        searchedText = findViewById(R.id.searchedJobs);
         getJobs();
 
 
@@ -57,7 +57,7 @@ public class SearchActivity extends AppCompatActivity {
 
                     BufferedReader br = new BufferedReader(in);
                     String string = br.readLine();
-                    output = (TextView) findViewById(R.id.listOfJobs);
+                    output = findViewById(R.id.listOfJobs);
                     output.setText(string);
 
                 }  catch (IOException e){

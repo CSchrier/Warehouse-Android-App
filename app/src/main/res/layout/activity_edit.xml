@@ -66,29 +66,30 @@
         android:id="@+id/aisleID"
         android:layout_width="100dp"
         android:layout_height="55dp"
-        android:layout_marginTop="88dp"
         android:background="#6EAFE3"
         android:entries="@array/aisles"
         android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/bayEdit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.538" />
 
     <EditText
         android:id="@+id/bayEdit"
         android:layout_width="143dp"
         android:layout_height="54dp"
-        android:layout_marginTop="88dp"
         android:ems="10"
         android:hint="Bay"
         android:inputType="numberSigned"
         android:minHeight="48dp"
         android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/aisleID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/aisleID"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/aisleID" />
 
     <Button
         android:id="@+id/button21"
@@ -108,7 +109,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="96dp"
         android:backgroundTint="#E40000"
-        android:onClick="editToRoom"
+        android:onClick="editToClear"
         android:text="Pull / Clear"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobEdit" />
@@ -117,7 +118,7 @@
         android:id="@+id/textView"
         android:layout_width="78dp"
         android:layout_height="42dp"
-        android:layout_marginTop="98dp"
+        android:layout_marginTop="95dp"
         android:autoText="false"
         android:text="Aisle"
         android:textAlignment="center"

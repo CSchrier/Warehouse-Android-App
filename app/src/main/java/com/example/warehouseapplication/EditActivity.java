@@ -169,15 +169,17 @@ public class EditActivity extends AppCompatActivity {
         bayText.requestFocus();
     }
 
-    public void editToRoom(View view) {
-        binText =  findViewById(R.id.binEdit);
-        jobText =  findViewById(R.id.jobEdit);
+    public void editToClear(View view) {
+
+        aisleSpinner = (Spinner)findViewById(R.id.aisleID);
         bayText =  findViewById(R.id.bayEdit);
-        bin = binText.getText().toString();
-        job = jobText.getText().toString();
+
+        bay = bayText.getText().toString();
+        String aisle = aisleSpinner.getSelectedItem().toString();
+
         TextView textView = findViewById(R.id.outputText);
-        if(job.length()>4&&bin.length()>0){
-            textView.setText(job+"-"+bin+ " was pulled and cleared");
+        if(bay.length()>2){
+            textView.setText(aisle+"-"+bay+ " was cleared");
             System.out.println("sending data to server");
             Thread thread = new Thread(new Runnable() {
 
@@ -186,7 +188,7 @@ public class EditActivity extends AppCompatActivity {
                     try  {
                         s = new Socket(ip, 4999);
                         pw = new PrintWriter(s.getOutputStream());
-                        pw.println("0 0 "+ job+"-"+bin + " room");
+                        pw.println("0 0 0-0" + aisle+"-"+bay);
                         pw.flush();
                         pw.close();
                         s.close();
