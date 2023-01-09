@@ -188,7 +188,7 @@ public class EditActivity extends AppCompatActivity {
                     try  {
                         s = new Socket(ip, 4999);
                         pw = new PrintWriter(s.getOutputStream());
-                        pw.println("0 0 0-0" + aisle+"-"+bay);
+                        pw.println("0 0 0-0 " + aisle+"-"+bay);
                         pw.flush();
                         pw.close();
                         s.close();
